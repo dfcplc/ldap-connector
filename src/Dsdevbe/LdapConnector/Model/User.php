@@ -25,11 +25,24 @@ class User implements Authenticatable
      * @var array
      */
     protected $_groups;
+    
+    /**
+     * @var String
+     */
+    public $name;
+    
+    /**
+     * @var String
+     */
+    public $email;
 
     public function __construct(array $attributes)
     {
         $this->_authIdentifier = $attributes['username'];
         $this->_authPassword = (isset($attributes['password'])) ? $attributes['password'] : null;
+        
+        $this->name = (isset($attributes['name']) ? $attributes['name'] : null);
+        $this->email = (isset($attributes['email']) ? $attributes['email'] : null);
     }
 
     /**
